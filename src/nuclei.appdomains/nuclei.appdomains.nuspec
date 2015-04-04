@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>Nuclei.Build</id>
-    <version>${Version}</version>
+    <id>Nuclei.AppDomains</id>
+    <version>$VersionSemantic$</version>
     <authors>P. van der Velde</authors>
     <owners>P. van der Velde</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
     <projectUrl>https://github.com/pvandervelde/Nuclei</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Provides attributes that can be applied to assemblies to provide build related information.
+      Provides methods to create application domains and attach assembly resolve and unhandled exception
+      handlers to the newly created domain.
     </description>
     <releaseNotes>
-      ${ReleaseNotes}
+      $ReleaseNotes$
     </releaseNotes>
     <dependencies>
-      ${Dependencies}
+      $Dependencies$
+      <dependency id="Nuclei" version="$VersionSemantic$" />
+      <dependency id="Nuclei.ExceptionHandling" version="$VersionSemantic$" />
     </dependencies>
   </metadata>
   <files>
-    <file src="${DirBin}\Nuclei.Build.dll" target="lib\net45" />
-    <file src="${DirBin}\Nuclei.Build.pdb" target="lib\net45" />
-    <file src="${DirBin}\Nuclei.Build.xml" target="lib\net45" />
-    <file src="${DirSrc}\Nuclei.Build\**\*.cs" target="src\Nuclei.Build" />
+    <file src="$DirTemp$\src\Nuclei.AppDomains\*.cs.pp" target="content\Nuclei\AppDomains" />
   </files>
 </package>
