@@ -50,7 +50,7 @@
     <Target Name="_Build_Prepare_SourceTemplates_PatchSource">
         <ItemGroup>
             <SourceFiles Include="$(DirSrc)\*\*.cs"
-                         Exclude="$(DirSrc)\test.unit.*\*.cs" />
+                         Exclude="$(DirSrc)\*\Nuclei.ExceptionHandling\*.cs;$(DirSrc)\*\Nuclei.Fusion\*.cs;$(DirSrc)\test.unit.*\*.cs" />
         </ItemGroup>
         <MakeDir Directories="$(DirTempSrc)"
                  Condition="!Exists('$(DirTempSrc)')" />
@@ -65,6 +65,15 @@
         <ItemGroup>
             <SourceTokens Include="namespace $(ProductNamespace)">
                 <ReplacementValue>namespace $rootnamespace$.$(ProductNamespace)</ReplacementValue>
+            </SourceTokens>
+            <SourceTokens Include="using $(ProductNamespace).Nuclei.ExceptionHandling">
+                <ReplacementValue>using $rootnamespace$.Nuclei.ExceptionHandling</ReplacementValue>
+            </SourceTokens>
+            <SourceTokens Include="using $(ProductNamespace).Nuclei.Fusion">
+                <ReplacementValue>using $rootnamespace$.Nuclei.Fusion</ReplacementValue>
+            </SourceTokens>
+            <SourceTokens Include="using $(ProductNamespace)">
+                <ReplacementValue>using $rootnamespace$.$(ProductNamespace)</ReplacementValue>
             </SourceTokens>
             <SourceTokens Include="//// GENERATED_CODE_HEADER">
                 <ReplacementValue>
