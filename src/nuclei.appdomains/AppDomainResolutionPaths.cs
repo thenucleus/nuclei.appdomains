@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Nuclei.AppDomains.Properties;
 
 namespace Nuclei.AppDomains
@@ -14,6 +15,14 @@ namespace Nuclei.AppDomains
     /// <summary>
     /// Holds the base path and assembly resolve paths for an <see cref="AppDomain"/>.
     /// </summary>
+    [SuppressMessage(
+        "Microsoft.Performance",
+        "CA1812:AvoidUninstantiatedInternalClasses",
+        Justification = "This class is embedded in an user assembly and called from there. Hence all methods are internal.")]
+    [SuppressMessage(
+        "Microsoft.Performance",
+        "CA1811:AvoidUncalledPrivateCode",
+        Justification = "This class is embedded in an user assembly and called from there. Hence all methods are internal.")]
     internal sealed class AppDomainResolutionPaths
     {
         /// <summary>
@@ -29,6 +38,10 @@ namespace Nuclei.AppDomains
         /// <exception cref="ArgumentException">
         /// Thrown if <paramref name="basePath"/> is an empty string.
         /// </exception>
+        [SuppressMessage(
+            "Microsoft.Performance",
+            "CA1811:AvoidUncalledPrivateCode",
+            Justification = "This class is embedded in an user assembly and called from there. Hence all methods are internal.")]
         public static AppDomainResolutionPaths WithFiles(string basePath, IEnumerable<string> files)
         {
             return WithFilesAndDirectories(basePath, files, new List<string>());
@@ -48,6 +61,10 @@ namespace Nuclei.AppDomains
         /// <exception cref="ArgumentException">
         ///     Thrown if <paramref name="basePath"/> is an empty string.
         /// </exception>
+        [SuppressMessage(
+            "Microsoft.Performance",
+            "CA1811:AvoidUncalledPrivateCode",
+            Justification = "This class is embedded in an user assembly and called from there. Hence all methods are internal.")]
         public static AppDomainResolutionPaths WithFilesAndDirectories(string basePath, IEnumerable<string> files, IEnumerable<string> directories)
         {
             return new AppDomainResolutionPaths(basePath, files, directories);

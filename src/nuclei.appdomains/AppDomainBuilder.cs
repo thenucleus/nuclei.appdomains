@@ -48,6 +48,10 @@ namespace Nuclei.AppDomains
         /// Generates the new name of the app domain.
         /// </summary>
         /// <returns>The newly generated <c>AppDomain</c> name.</returns>
+        [SuppressMessage(
+            "Microsoft.Performance",
+            "CA1811:AvoidUncalledPrivateCode",
+            Justification = "This class is embedded in an user assembly and called from there. Hence all methods are internal.")]
         private static string GenerateNewAppDomainName()
         {
             return DefaultFriendlyName;
@@ -59,6 +63,10 @@ namespace Nuclei.AppDomains
         /// <param name="name">The friendly name of the new <c>AppDomain</c>.</param>
         /// <param name="resolutionPaths">The assembly resolution paths for the new <c>AppDomain</c>.</param>
         /// <returns>The newly created <c>AppDomain</c>.</returns>
+        [SuppressMessage(
+            "Microsoft.Performance",
+            "CA1811:AvoidUncalledPrivateCode",
+            Justification = "This class is embedded in an user assembly and called from there. Hence all methods are internal.")]
         private static AppDomain Create(string name, AppDomainResolutionPaths resolutionPaths)
         {
             {
@@ -90,6 +98,10 @@ namespace Nuclei.AppDomains
         ///     Thrown if <paramref name="resolutionPaths"/> is <see langword="null" />.
         /// </exception>
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.ControlAppDomain)]
+        [SuppressMessage(
+            "Microsoft.Performance",
+            "CA1811:AvoidUncalledPrivateCode",
+            Justification = "This class is embedded in an user assembly and called from there. Hence all methods are internal.")]
         public static AppDomain Assemble(
             string friendlyName,
             AppDomainResolutionPaths resolutionPaths)
