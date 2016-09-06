@@ -1,0 +1,30 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Nuclei.AppDomains.Nuclei.ExceptionHandling
+  name: Nuclei.AppDomains.Nuclei.ExceptionHandling
+  href: api/Nuclei.AppDomains.Nuclei.ExceptionHandling.html#Nuclei_AppDomains_Nuclei_ExceptionHandling
+  commentId: N:Nuclei.AppDomains.Nuclei.ExceptionHandling
+  fullName: Nuclei.AppDomains.Nuclei.ExceptionHandling
+- uid: Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler
+  name: ExceptionHandler
+  href: api/Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler.html#Nuclei_AppDomains_Nuclei_ExceptionHandling_ExceptionHandler
+  commentId: T:Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler
+  fullName: Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler
+- uid: Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler.#ctor(Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionProcessor[])
+  name: ExceptionHandler(ExceptionProcessor[])
+  href: api/Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler.html#Nuclei_AppDomains_Nuclei_ExceptionHandling_ExceptionHandler__ctor_Nuclei_AppDomains_Nuclei_ExceptionHandling_ExceptionProcessor___
+  commentId: M:Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler.#ctor(Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionProcessor[])
+  name.vb: ExceptionHandler(ExceptionProcessor())
+  fullName: Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler.ExceptionHandler(Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionProcessor[])
+  fullName.vb: Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler.ExceptionHandler(Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionProcessor())
+- uid: Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler.OnException(System.Exception)
+  name: OnException(Exception)
+  href: api/Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler.html#Nuclei_AppDomains_Nuclei_ExceptionHandling_ExceptionHandler_OnException_System_Exception_
+  commentId: M:Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler.OnException(System.Exception)
+  fullName: Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionHandler.OnException(System.Exception)
+- uid: Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionProcessor
+  name: ExceptionProcessor
+  href: api/Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionProcessor.html#Nuclei_AppDomains_Nuclei_ExceptionHandling_ExceptionProcessor
+  commentId: T:Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionProcessor
+  fullName: Nuclei.AppDomains.Nuclei.ExceptionHandling.ExceptionProcessor
