@@ -12,6 +12,7 @@ namespace Nuclei.AppDomains
     /// <summary>
     /// Defines the interface for classes which deal with assembly resolution.
     /// </summary>
+    //// GENERATED_CODE_ATTRIBUTE
     internal interface IAppDomainAssemblyResolver
     {
         /// <summary>

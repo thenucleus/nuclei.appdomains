@@ -23,6 +23,7 @@ namespace Nuclei.AppDomains
         "Microsoft.Performance",
         "CA1811:AvoidUncalledPrivateCode",
         Justification = "This class is embedded in an user assembly and called from there. Hence all methods are internal.")]
+    //// GENERATED_CODE_ATTRIBUTE
     internal sealed class AppDomainResolutionPaths
     {
         /// <summary>

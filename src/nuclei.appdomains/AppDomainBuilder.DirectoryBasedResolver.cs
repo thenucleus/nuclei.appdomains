@@ -16,6 +16,7 @@ namespace Nuclei.AppDomains
     /// <content>
     /// Contains the definition of the <see cref="DirectoryBasedResolver"/> class.
     /// </content>
+    //// GENERATED_CODE_ATTRIBUTE
     internal static partial class AppDomainBuilder
     {
         /// <summary>

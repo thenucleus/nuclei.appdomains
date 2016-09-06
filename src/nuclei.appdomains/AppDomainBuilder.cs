@@ -17,6 +17,7 @@ namespace Nuclei.AppDomains
     /// <summary>
     /// Builds AppDomains with unhandled exception handlers and fusion loading events.
     /// </summary>
+    //// GENERATED_CODE_ATTRIBUTE
     internal static partial class AppDomainBuilder
     {
         /// <summary>
