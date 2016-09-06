@@ -163,3 +163,6 @@ $RECYCLE.BIN/
 .DS_Store
 AssemblyInfo.Company.cs
 *.ide
+doc/Nuclei.AppDomains.Documentation/docfx.json
+doc/Nuclei.AppDomains.Documentation/_site/
+src/.vs/
