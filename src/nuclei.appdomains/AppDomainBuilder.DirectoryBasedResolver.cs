@@ -1,6 +1,7 @@
 //-----------------------------------------------------------------------
-// <copyright company="Nuclei">
-//     Copyright 2013 Nuclei. Licensed under the Apache License, Version 2.0.
+// <copyright company="TheNucleus">
+// Copyright (c) TheNucleus. All rights reserved.
+// Licensed under the Apache License, Version 2.0 license. See LICENCE.md file in the project root for full license information.
 // </copyright>
 //-----------------------------------------------------------------------
 
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Nuclei.Fusion;
+using Nuclei.AppDomains.Nuclei.Fusion;
 
 namespace Nuclei.AppDomains
 {
@@ -30,7 +31,7 @@ namespace Nuclei.AppDomains
             /// Explicitly store the directory paths in strings because DirectoryInfo objects are eventually
             /// nuked because DirectoryInfo is a MarshalByRefObject and can thus go out of scope.
             /// </design>
-            private IEnumerable<string> m_Directories;
+            private IEnumerable<string> _directories;
 
             /// <summary>
             /// Stores the paths to the relevant directories.
@@ -41,11 +42,12 @@ namespace Nuclei.AppDomains
             /// </exception>
             public void StoreDirectoryPaths(IEnumerable<string> directoryPaths)
             {
+                if (directoryPaths == null)
                 {
-                    Lokad.Enforce.Argument(() => directoryPaths);
+                    throw new ArgumentNullException("directoryPaths");
                 }
 
-                m_Directories = directoryPaths;
+                _directories = directoryPaths;
             }
 
             /// <summary>
@@ -58,17 +60,13 @@ namespace Nuclei.AppDomains
             /// </exception>
             public void Attach()
             {
-                {
-                    Lokad.Enforce.NotNull(() => m_Directories);
-                }
-
                 var domain = AppDomain.CurrentDomain;
                 {
                     var helper = new FusionHelper(
-                        () => m_Directories.SelectMany(
+                        () => _directories.SelectMany(
                             dir => Directory.GetFiles(
-                                dir, 
-                                "*.dll", 
+                                dir,
+                                "*.dll",
                                 SearchOption.AllDirectories)));
                     domain.AssemblyResolve += helper.LocateAssemblyOnAssemblyLoadFailure;
                 }

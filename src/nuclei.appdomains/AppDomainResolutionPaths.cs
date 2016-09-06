@@ -1,11 +1,13 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright company="Nuclei">
-//     Copyright 2013 Nuclei. Licensed under the Apache License, Version 2.0.
+// <copyright company="TheNucleus">
+// Copyright (c) TheNucleus. All rights reserved.
+// Licensed under the Apache License, Version 2.0 license. See LICENCE.md file in the project root for full license information.
 // </copyright>
 //-----------------------------------------------------------------------
 
 using System;
 using System.Collections.Generic;
+using Nuclei.AppDomains.Properties;
 
 namespace Nuclei.AppDomains
 {
@@ -65,9 +67,14 @@ namespace Nuclei.AppDomains
         /// </exception>
         private AppDomainResolutionPaths(string basePath, IEnumerable<string> files, IEnumerable<string> directories)
         {
+            if (basePath == null)
             {
-                Lokad.Enforce.Argument(() => basePath);
-                Lokad.Enforce.Argument(() => basePath, Lokad.Rules.StringIs.NotEmpty);
+                throw new ArgumentNullException("basePath");
+            }
+
+            if (string.IsNullOrWhiteSpace(basePath))
+            {
+                throw new ArgumentException(Resources.Exceptions_Messages_ParameterShouldNotBeAnEmptyString, "basePath");
             }
 
             BasePath = basePath;
