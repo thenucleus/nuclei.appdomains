@@ -1,12 +1,13 @@
 //-----------------------------------------------------------------------
-// <copyright company="Nuclei">
-//     Copyright 2013 Nuclei. Licensed under the Apache License, Version 2.0.
+// <copyright company="TheNucleus">
+// Copyright (c) TheNucleus. All rights reserved.
+// Licensed under the Apache License, Version 2.0 license. See LICENCE.md file in the project root for full license information.
 // </copyright>
 //-----------------------------------------------------------------------
 
 using System;
 using System.Collections.Generic;
-using Nuclei.Fusion;
+using Nuclei.AppDomains.Nuclei.Fusion;
 
 namespace Nuclei.AppDomains
 {
@@ -28,7 +29,7 @@ namespace Nuclei.AppDomains
             /// Explicitly store the file paths in strings because FileInfo objects are eventually
             /// nuked because FileInfo is a MarshalByRefObject and can thus go out of scope.
             /// </design>
-            private IEnumerable<string> m_Files;
+            private IEnumerable<string> _files;
 
             /// <summary>
             /// Stores the paths to the relevant assemblies.
@@ -39,11 +40,12 @@ namespace Nuclei.AppDomains
             /// </exception>
             public void StoreFilePaths(IEnumerable<string> filePaths)
             {
+                if (filePaths == null)
                 {
-                    Lokad.Enforce.Argument(() => filePaths); 
+                    throw new ArgumentNullException("filePaths");
                 }
 
-                m_Files = filePaths;
+                _files = filePaths;
             }
 
             /// <summary>
@@ -56,13 +58,9 @@ namespace Nuclei.AppDomains
             /// </exception>
             public void Attach()
             {
-                {
-                    Lokad.Enforce.NotNull(() => m_Files);
-                }
-
                 var domain = AppDomain.CurrentDomain;
                 {
-                    var helper = new FusionHelper(() => m_Files);
+                    var helper = new FusionHelper(() => _files);
                     domain.AssemblyResolve += helper.LocateAssemblyOnAssemblyLoadFailure;
                 }
             }

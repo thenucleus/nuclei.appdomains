@@ -3,10 +3,10 @@
   <metadata>
     <id>Nuclei.AppDomains</id>
     <version>$VersionSemantic$</version>
-    <authors>P. van der Velde</authors>
-    <owners>P. van der Velde</owners>
+    <authors>Metamorpher</authors>
+    <owners>Metamorpher</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectUrl>https://github.com/pvandervelde/Nuclei</projectUrl>
+    <projectUrl>https://github.com/Metamorpher/Nuclei.AppDomains</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
       Provides methods to create application domains and attach assembly resolve and unhandled exception
@@ -17,11 +17,9 @@
     </releaseNotes>
     <dependencies>
       $Dependencies$
-      <dependency id="Nuclei" version="$VersionSemantic$" />
-      <dependency id="Nuclei.ExceptionHandling" version="$VersionSemantic$" />
     </dependencies>
   </metadata>
   <files>
-    <file src="$DirTemp$\src\Nuclei.AppDomains\*.cs.pp" target="content\Nuclei\AppDomains" />
+    <file src="$DirTempSrc$\*.cs.pp" target="content\Nuclei\AppDomains" />
   </files>
 </package>
