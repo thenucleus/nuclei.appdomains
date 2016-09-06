@@ -1,22 +1,23 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright company="Nuclei">
-//     Copyright 2013 Nuclei. Licensed under the Apache License, Version 2.0.
+// <copyright company="TheNucleus">
+// Copyright (c) TheNucleus. All rights reserved.
+// Licensed under the Apache License, Version 2.0 license. See LICENCE.md file in the project root for full license information.
 // </copyright>
 //-----------------------------------------------------------------------
-
+//// GENERATED_CODE_HEADER
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Security.Permissions;
-using Nuclei;
-using Nuclei.ExceptionHandling;
+using Nuclei.AppDomains.Nuclei.ExceptionHandling;
 
 namespace Nuclei.AppDomains
 {
     /// <summary>
     /// Builds AppDomains with unhandled exception handlers and fusion loading events.
     /// </summary>
+    //// GENERATED_CODE_ATTRIBUTE
     internal static partial class AppDomainBuilder
     {
         /// <summary>
@@ -27,13 +28,15 @@ namespace Nuclei.AppDomains
             /// <summary>
             /// Attaches the exception handler to the domain.
             /// </summary>
-            [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic",
+            [SuppressMessage(
+                "Microsoft.Performance",
+                "CA1822:MarkMembersAsStatic",
                 Justification = "This needs to be called on a proxy so it can't be a static method.")]
             public void Attach()
             {
                 var domain = AppDomain.CurrentDomain;
                 var handler = new ExceptionHandler(null, null);
-                domain.UnhandledException += (s, e) => handler.OnException(e.ExceptionObject as Exception, e.IsTerminating);
+                domain.UnhandledException += (s, e) => handler.OnException(e.ExceptionObject as Exception);
             }
         }
 
@@ -46,6 +49,10 @@ namespace Nuclei.AppDomains
         /// Generates the new name of the app domain.
         /// </summary>
         /// <returns>The newly generated <c>AppDomain</c> name.</returns>
+        [SuppressMessage(
+            "Microsoft.Performance",
+            "CA1811:AvoidUncalledPrivateCode",
+            Justification = "This class is embedded in an user assembly and called from there. Hence all methods are internal.")]
         private static string GenerateNewAppDomainName()
         {
             return DefaultFriendlyName;
@@ -57,6 +64,10 @@ namespace Nuclei.AppDomains
         /// <param name="name">The friendly name of the new <c>AppDomain</c>.</param>
         /// <param name="resolutionPaths">The assembly resolution paths for the new <c>AppDomain</c>.</param>
         /// <returns>The newly created <c>AppDomain</c>.</returns>
+        [SuppressMessage(
+            "Microsoft.Performance",
+            "CA1811:AvoidUncalledPrivateCode",
+            Justification = "This class is embedded in an user assembly and called from there. Hence all methods are internal.")]
         private static AppDomain Create(string name, AppDomainResolutionPaths resolutionPaths)
         {
             {
@@ -64,12 +75,12 @@ namespace Nuclei.AppDomains
             }
 
             var setup = new AppDomainSetup
-                {
-                    ApplicationName = Assembly.GetCallingAssembly().GetName().Name,
-                    ApplicationBase = resolutionPaths.BasePath, 
-                    ShadowCopyFiles = "false", 
-                    DisallowCodeDownload = true
-                };
+            {
+                ApplicationName = Assembly.GetCallingAssembly().GetName().Name,
+                ApplicationBase = resolutionPaths.BasePath,
+                ShadowCopyFiles = "false",
+                DisallowCodeDownload = true
+            };
 
             var result = AppDomain.CreateDomain(
                 string.IsNullOrEmpty(name) ? GenerateNewAppDomainName() : name,
@@ -88,12 +99,17 @@ namespace Nuclei.AppDomains
         ///     Thrown if <paramref name="resolutionPaths"/> is <see langword="null" />.
         /// </exception>
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.ControlAppDomain)]
+        [SuppressMessage(
+            "Microsoft.Performance",
+            "CA1811:AvoidUncalledPrivateCode",
+            Justification = "This class is embedded in an user assembly and called from there. Hence all methods are internal.")]
         public static AppDomain Assemble(
-            string friendlyName, 
+            string friendlyName,
             AppDomainResolutionPaths resolutionPaths)
         {
+            if (resolutionPaths == null)
             {
-                Lokad.Enforce.Argument(() => resolutionPaths);
+                throw new ArgumentNullException("resolutionPaths");
             }
 
             var domain = Create(friendlyName, resolutionPaths);

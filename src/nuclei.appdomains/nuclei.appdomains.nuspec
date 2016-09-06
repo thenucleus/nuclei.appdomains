@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Nuclei.AppDomains</id>
+    <version>$VersionSemantic$</version>
+    <authors>Metamorpher</authors>
+    <owners>Metamorpher</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/Metamorpher/Nuclei.AppDomains</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      Provides methods to create application domains and attach assembly resolve and unhandled exception
+      handlers to the newly created domain.
+    </description>
+    <releaseNotes>
+      $ReleaseNotes$
+    </releaseNotes>
+    <dependencies>
+      $Dependencies$
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="$DirTempSrc$\*.cs.pp" target="content\Nuclei\AppDomains" />
+  </files>
+</package>

@@ -124,7 +124,6 @@ AppPackages/
 sql/
 *.Cache
 ClientBin/
-[Ss]tyle[Cc]op.*
 ~$*
 *~
 *.dbmdl
@@ -162,3 +161,8 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+AssemblyInfo.Company.cs
+*.ide
+doc/Nuclei.AppDomains.Documentation/docfx.json
+doc/Nuclei.AppDomains.Documentation/_site/
+src/.vs/
