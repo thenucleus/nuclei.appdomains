@@ -4,7 +4,7 @@
 // Licensed under the Apache License, Version 2.0 license. See LICENCE.md file in the project root for full license information.
 // </copyright>
 //-----------------------------------------------------------------------
-
+//// GENERATED_CODE_HEADER
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -17,6 +17,7 @@ namespace Nuclei.AppDomains
     /// <summary>
     /// Builds AppDomains with unhandled exception handlers and fusion loading events.
     /// </summary>
+    //// GENERATED_CODE_ATTRIBUTE
     internal static partial class AppDomainBuilder
     {
         /// <summary>
