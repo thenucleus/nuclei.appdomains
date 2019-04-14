@@ -3,10 +3,10 @@
   <metadata>
     <id>Nuclei.AppDomains</id>
     <version>$VersionSemantic$</version>
-    <authors>Metamorpher</authors>
-    <owners>Metamorpher</owners>
+    <authors>Petrik van der Velde</authors>
+    <owners>Petrik van der Velde</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectUrl>https://github.com/Metamorpher/Nuclei.AppDomains</projectUrl>
+    <projectUrl>https://github.com/thenucleus/Nuclei.AppDomains</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
       Provides methods to create application domains and attach assembly resolve and unhandled exception
